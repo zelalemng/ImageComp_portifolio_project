@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+Login - Image Comparison App
+
+{% endblock %}
+{% block content %}
+<section id="hero" class="min-vh-90 d-flex align-items-center text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1 data-aos="fade-left" class="text-uppercase text-light fw-semibold display-1">Welcome to I-Comp</h1>
+                <h5 class="text-white mt-3 mb-4" data-aos="fade-right">“Efficient Image Comparesion for Every Need”</h5>
+                <div data-aos="fade-up" data-aos-delay="50">
+                    <a href="{{ url_for('login_page') }}" class="btn btn-light me-2">Get Started</a>
+                    <a href="{{ url_for('register_page') }}" class="btn btn-light ms-2">Access..</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

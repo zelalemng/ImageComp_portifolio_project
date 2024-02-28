@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+Login - Image Comparison App
+
+{% endblock %}
+{% block content %}
+<body class="text-center">
+    <section id="service" class="min-vh-90 d-flex align-items-center text-center">
+        <div class="container">
+            <form methods="POST" class="form-register" style="color: white;">
+                <img src="{{ url_for('static', filename='logo.svg') }}" alt="Logo" height="60" width="180">
+                <h1>Login</h1>
+                {{ form.hidden_tag() }}
+                <p>{{ form.username.label() }}<br>{{ form.username(class="form-control", placeholder="User Name") }}</p>
+                <p>{{ form.email.label() }}<br>{{ form.email(class="form-control", placeholder="User Email") }}</p>
+                <p>{{ form.password.label() }}<br>{{ form.password(class="form-control", placeholder="User password") }}</p>   
+                <p>{{ form.confirm_password.label() }}<br>{{ form.confirm_password(class="form-control", placeholder="Confirm") }}</p>
+                <div class="checkbox mb-3">
+                    <h6>Do not have an account?</h6>
+                    <a class="btn btn-sm btn-secondary" href="{{ url_for('login_page')}}">Login</a>
+                </div>
+                <p>{{ form.submit(class="btn btn-lg btn-block btn-primary") }}</p>
+            </form>
+        </div>
+    </section>
+</body>
+
+{% endblock %}

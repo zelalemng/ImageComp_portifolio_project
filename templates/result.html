@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+Login - Image Comparison App
+
+{% endblock %}
+{% block content %}
+<section id="services" class="min-vh-90 d-flex align-items-center text-center">
+    <div class="container">
+        <div class="section-title">
+            <h1 class="text-white text-center mt-5">Image Comparison Result</h1>
+            <div class="line"></div>
+            <p>We love to craft digital experiances for brands rather than crap and more lorem ipsums and do crazy skills</p>
+        </div>
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <form action="/" method="post" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="firstImage" class="form-label text-white">Upload First Image</label>
+                        <input type="file" class="form-control" id="firstImage" name="firstImage" accept="image/*" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="secondImage" class="form-label text-white">Upload Second Image</label>
+                        <input type="file" class="form-control" id="secondImage" name="secondImage" accept="image/*" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Compare Images</button>
+                </form>
+        
+                {% if score %}
+                <div class="mt-5">
+                    <form>
+                        
+                        <div class="row box-shadow bg-dark">
+                            <div class="col-md-6">
+                                <h3 class="text-white">First Image</h3>
+                                <img src="{{ first_img_path }}" class="img-fluid" alt="First Image">
+                            </div>
+                            <div class="col-md-6">
+                                <h3 class="text-white">Second Image</h3>
+                                <img src="{{ second_img_path }}" class="img-fluid" alt="Second Image">
+                            </div>
+                        </div>
+                        <h2 class="text-black">Similarity Score: {{ score * 100 }}%</h2>
+                        <h2 class="text-black">difference Score: {{ 100 - score * 100 }}%</h2>
+                    </form>
+                    
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
